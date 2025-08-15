@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xícara Literária</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- <style>
+        /* Botão de música flutuante */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(45deg, #009688, #0057e3);
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+        .music-btn:hover {
+            transform: scale(1.1);
+        }
+    </style> -->
+</head>
+<body>
+    <header>
+        <img class="foto" src="imagens/xicara_azulmetalico.png" alt="fotoperfil">
+        <div class="texto">Xícara Literária</div>
+        <p>☕📚 Xícara Literária — onde boas histórias são servidas quentinhas direto para você!</p>
+        <p>A livraria digital da Daniela é o cantinho perfeito para quem ama ler sem sair de casa...</p>
+    </header>
+
+    <section class="main-container">
+        <div class="texto">Livros Disponíveis</div>
+        <div class="books">
+            <div class="container">
+                <div class="flip">
+                    <div class="frente">
+                        <img src="imagens/as meninas.jpg" alt="as meninas">
+                    </div>
+                    <div class="tras"><p>Preço R$ 45,00</p></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="flip">
+                    <div class="frente">
+                        <img src="imagens/cantosabeiramar.jpg" alt="cantos beira mar">
+                    </div>
+                    <div class="tras"><p>Preço R$ 45,00</p></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="flip">
+                    <div class="frente">
+                        <img src="imagens/Entre a espada e a rosa.png" alt="entre a espada e a rosa">
+                    </div>
+                    <div class="tras"><p>Preço R$ 45,00</p></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="flip">
+                    <div class="frente">
+                        <img src="imagens/olhai os lirios.jpg" alt="olhai os lirios">
+                    </div>
+                    <div class="tras"><p>Preço R$ 45,00</p></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="flip">
+                    <div class="frente">
+                        <img src="imagens/contact.jpg" alt="contato">
+                    </div>
+                    <div class="tras"><p>Preço R$ 45,00</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="#" class="btn-footer degrade" target="_blank"><i class="bi bi-tiktok"></i></a>
+    </footer>
+
+    <!-- Áudio de fundo -->
+    <audio id="bg-music" loop>
+        <source src="imagens/reve.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio HTML5.
+    </audio>
+
+    <!-- Botão de música
+    <button class="music-btn" id="music-toggle">
+        <i class="bi bi-play-fill"></i>
+    </button>
+
+    <script>
+        const music = document.getElementById('bg-music');
+        const toggleBtn = document.getElementById('music-toggle');
+        let isPlaying = false;
+
+        toggleBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                music.pause();
+                toggleBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+            } else {
+                music.play();
+                toggleBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+    </script> -->
+</body>
+</html>

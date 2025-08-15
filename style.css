@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Patua+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lora", serif;
+}
+
+html {
+    height: 150vh;
+    font-size: 16px;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    padding-top: 30px; 
+    background: linear-gradient(to right, #ffffff, #cce4ff);
+
+    /* Fundo gradiente dourado e preto */
+    /* background: linear-gradient(270deg, #000000, #0d024eec, #000000);
+    background-size: 600% 600%;
+    animation: goldFlow 12s ease infinite;
+} */
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* estilo header */
+
+header {
+    text-align: center;
+    margin-bottom: 15px;
+    height: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    color: #000000;
+}
+
+header img {
+    max-width: 140px;
+    margin-bottom: 20px;
+}
+
+.texto {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+    background: linear-gradient(45deg, #00E3CC, #1b096e, #009688, #eff300);
+    background-size: 400% 400%; /* bem maior para ter espaço para se mover */
+    animation: degradetexto 8s linear infinite;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes degradetexto {
+    0% {
+        background-position: 0% ; /* começa no início */
+    }
+    50% {
+        background-position: 100% ; /* vai até o outro lado */
+    }
+    100% {
+        background-position: 0% ; /* volta ao início */
+    }
+}
+
+
+.foto {
+    width: 150px;             
+    height: 150px;
+    border-radius: 50%;        
+    overflow: hidden;
+    padding: 5px;              
+    box-shadow: 5px 5px 20px #ff0800  , 0 0 5px #00f0ff, 2px 2px 6px #007bff;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+   
+}
+
+/* Animação gradiente */
+@keyframes neonAnim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/*seção dos livros*/
+.main-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.books {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px;
+}
+
+
+/*-------------card Flip----------- */
+.container {
+    position: relative;
+    width: 150px;
+    height: 250px;
+    margin-right: 10px;
+}
+
+.container:hover .flip {
+    transform: rotateY(180deg);
+}
+
+.flip {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: .5s;
+}
+
+.frente, .tras{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px #050505d3 ;
+    backface-visibility: hidden; /*esconde a parte de tras do usuario*/
+}
+
+.frente img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* mantém a proporção cortando se necessário */
+    border-radius: 20px; /* opcional, pra combinar com o card */
+}
+
+.tras {
+     background-image: url(imagens/tecidoazul.jpeg);
+     transform: rotateY(180deg);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 18px;
+     color: #fff;
+}
+
+
+/* estilo rodape */
+
+footer {
+    text-align: center;
+    margin: 10px;
+}
+
+footer a.btn-footer {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    font-size: 2em;
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 0px 10px;
+    transition: .3s;
+}
+
+.degrade {
+    /* background: linear-gradient(to right, #00FFFF, #22D3EE); */
+    /* background: linear-gradient(to right, #1E90FF, #0EA5E9); */
+    background: linear-gradient(to right, #94A3B8, #64748B);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+
+}
+
+
+/* ===== Responsividade ===== */
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .foto {
+        width: 140px;
+        height: 140px;
+    }
+
+    .container {
+        width: 140px;
+        height: 230px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 20px;
+        gap: 8px;
+    }
+
+    header img {
+        max-width: 120px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .foto {
+        width: 120px;
+        height: 120px;
+    }
+
+    .books {
+        gap: 15px;
+    }
+
+    .container {
+        width: 130px;
+        height: 210px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 15px;
+        gap: 6px;
+    }
+
+    header img {
+        max-width: 100px;
+        margin-bottom: 15px;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .foto {
+        width: 100px;
+        height: 100px;
+    }
+
+    .books {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .container {
+        width: 100px;
+        height: 160px;
+    }
+
+    footer a.btn-footer {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+        line-height: 50px;
+    }
+}
