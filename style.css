@@ -7,10 +7,24 @@
     font-family: "Lora", serif;
 }
 
+
 html {
     height: 150vh;
     font-size: 16px;
 }
+
+body {
+    background: linear-gradient(270deg, #ffffff, #cdb3cd, #f6f1fd);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 body{
     background-color: rgb(0, 0, 0);
@@ -21,7 +35,7 @@ body{
     justify-content: center;
     gap: 10px; 
     padding-top: 30px; 
-    background: linear-gradient(to right, #ffffff, #cce4ff);
+    /* background: linear-gradient(to right, #ffffff, #cce4ff); */
 
     /* Fundo gradiente dourado e preto */
     /* background: linear-gradient(270deg, #000000, #0d024eec, #000000);
@@ -48,33 +62,19 @@ header {
 header img {
     max-width: 140px;
     margin-bottom: 20px;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease; /* suaviza o aumento */
+}
+
+header img:hover{
+    transform: scale(1.1); /* aumenta 10% */
 }
 
 .texto {
     font-size: 30px;
     margin-bottom: 10px;
     text-transform: uppercase;
-
-    background: linear-gradient(45deg, #00E3CC, #1b096e, #009688, #eff300);
-    background-size: 400% 400%; /* bem maior para ter espaço para se mover */
-    animation: degradetexto 8s linear infinite;
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
-
-@keyframes degradetexto {
-    0% {
-        background-position: 0% ; /* começa no início */
-    }
-    50% {
-        background-position: 100% ; /* vai até o outro lado */
-    }
-    100% {
-        background-position: 0% ; /* volta ao início */
-    }
-}
-
 
 .foto {
     width: 150px;             
@@ -105,17 +105,47 @@ header img {
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 20px;
+    gap: 50px;
     width: 100%;
     height: 100%;
 }
 
 .books {
     display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
     gap: 20px;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
+
+
+/* Centralizar no desktop */
+@media (min-width: 769px) {
+    .books {
+        justify-content: center; /* centraliza no PC */
+        overflow-x: visible;     /* remove scroll desnecessário */
+    }
+}
+
+/* Mobile mantém o scroll lateral */
+@media (max-width: 768px) {
+    .books {
+        justify-content: flex-start; /* começa da esquerda no scroll */
+        overflow-x: auto;
+    }
+}
+
+.books::-webkit-scrollbar {
+    height: 8px; /* tamanho da barra */
+}
+
+.books::-webkit-scrollbar-thumb {
+    background: #64748B; /* cor da barrinha */
+    border-radius: 10px;
+}
+
 
 
 /*-------------card Flip----------- */
@@ -123,7 +153,19 @@ header img {
     position: relative;
     width: 150px;
     height: 250px;
-    margin-right: 10px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease; /* suaviza o aumento */
+}
+
+.container:hover {
+    transform: scale(1.1); /* aumenta 10% */
+    z-index: 2; /* coloca o card acima dos outros */
+}
+
+/* Mantém o flip funcionando normalmente */
+.container:hover .flip {
+    transform: rotateY(180deg);
 }
 
 .container:hover .flip {
@@ -173,6 +215,12 @@ footer {
     margin: 10px;
 }
 
+footer img{
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+}
+
 footer a.btn-footer {
     width: 60px;
     height: 60px;
@@ -181,7 +229,12 @@ footer a.btn-footer {
     line-height: 60px;
     border-radius: 50%;
     margin: 0px 10px;
-    transition: .3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* adiciona transição suave */
+}
+
+footer a.btn-footer:hover {
+    transform: scale(1.4); /* aumenta 20% */
+    box-shadow: 0 6px 20px rgba(43, 233, 14, 0.6); 
 }
 
 .degrade {
