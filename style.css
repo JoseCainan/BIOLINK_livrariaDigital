@@ -212,6 +212,31 @@ footer a.btn-footer:hover {
     box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
 }
 
+/* botao de musica */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #009688, #0057e3);
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    z-index: 1000; /* garante que fique sempre por cima */
+}
+.music-btn:hover {
+    transform: scale(1.1);
+}
+
+
 /* ===== Responsividade ===== */
 @media (max-width: 1024px) {
     header h1 {
@@ -228,6 +253,14 @@ footer a.btn-footer:hover {
 }
 
 @media (max-width: 768px) {
+
+    .music-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        bottom: 15px;
+        right: 15px;
+    }
 
     .books {
         flex-direction: row;       /* mantém horizontal */
@@ -265,16 +298,26 @@ footer a.btn-footer:hover {
 }
 
 @media (max-width: 480px) {
+
+    .music-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+        bottom: 10px;
+        right: 10px;
+    }
+
     .books {
         flex-direction: row;       /* mantém horizontal */
-        align-items: flex-start;   /* alinha no topo */
+        align-items: flex-start;   /* não força centralizar em coluna */
         gap: 15px;
-        overflow-x: auto;          /* scroll lateral */
-        overflow-y: hidden;        /* evita quebra vertical */
+        overflow-x: auto;          /* habilita scroll lateral */
+        overflow-y: hidden;        /* remove scroll vertical indesejado */
+        -webkit-overflow-scrolling: touch; /* scroll suave no iOS/Android */
     }
 
     .container {
-        flex: 0 0 auto;  /* garante que cada livro ocupe só o espaço dele */
+        flex: 0 0 auto;  /* impede o card de encolher */
     }
 
     body {
