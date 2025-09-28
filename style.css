@@ -252,6 +252,18 @@ footer a.btn-footer:hover {
 }
 
 @media (max-width: 480px) {
+    .books {
+        flex-direction: row;       /* mantém horizontal */
+        align-items: flex-start;   /* alinha no topo */
+        gap: 15px;
+        overflow-x: auto;          /* scroll lateral */
+        overflow-y: hidden;        /* evita quebra vertical */
+    }
+
+    .container {
+        flex: 0 0 auto;  /* garante que cada livro ocupe só o espaço dele */
+    }
+
     body {
         padding-top: 15px;
         gap: 6px;
