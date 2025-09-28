@@ -8,6 +8,16 @@
 }
 
 /* ===== Fundo animado ===== */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%; /* garante altura mínima */
+    font-size: 16px;
+    overflow-x: hidden; /* evita scroll lateral fantasma */
+}
+
 html {
     height: 100%;
     font-size: 16px;
